@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Global Ticaret</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main id="authView" class="auth-shell">
+    <section class="brand-panel">
+      <div class="logo-card logo-image-card"><img src="/app/assets/nova-global-logo-selected.png?v=7" alt="Nova Global" /></div>
+      <p class="eyebrow">Nova Global Ticaret</p>
+      <h1>Nova Global</h1>
+      <p class="lead">Bayi ağını, siparişlerini ve kazancını tek merkezden yönet.</p>
+
+      <div class="feature-list">
+        <div>Güvenli bayi girişi</div>
+        <div>Sponsor ağı ve kazanç takibi</div>
+        <div>Paket seviyesine özel indirim</div>
+      </div>
+    </section>
+
+    <section class="auth-card">
+      <div class="tabs">
+        <button class="tab active" type="button" data-auth-tab="login">Giriş</button>
+        <button class="tab" type="button" data-auth-tab="register">Kayıt</button>
+      </div>
+
+      <form id="loginForm" class="form-panel">
+        <h2>Hesaba Giriş</h2>
+        <p>Demo kullanıcı: <strong>can@nova.com</strong></p>
+
+        <label>
+          E-mail
+          <input name="email" type="email" value="can@nova.com" required />
+        </label>
+
+        <label>
+          Şifre
+          <input name="sifre" type="password" value="123456" required />
+        </label>
+
+        <button class="primary-btn" type="submit">Giriş Yap</button>
+      </form>
+
+      <form id="registerForm" class="form-panel hidden">
+        <h2>Bayi Kaydı</h2>
+
+        <div class="two-col">
+          <label>Ad<input name="ad" required /></label>
+          <label>Soyad<input name="soyad" required /></label>
+        </div>
+
+        <label>E-mail<input name="email" type="email" required /></label>
+        <label>Telefon<input name="telefon" required /></label>
+        <label>
+          Ülke / Para Birimi
+          <select name="ulke" required>
+            <option value="Türkiye">Türkiye - Türk Lirası (TRY)</option>
+            <option value="Azerbaycan">Azerbaycan - Manat (AZN)</option>
+            <option value="Amerika Birleşik Devletleri">Amerika Birleşik Devletleri - Dolar (USD)</option>
+          </select>
+        </label>
+        <label>Şifre<input name="sifre" type="password" required /></label>
+        <label>Sponsor Üye No<input name="sponsor_uye_no" placeholder="900011" /></label>
+
+        <button class="primary-btn" type="submit">Kayıt Ol</button>
+      </form>
+    </section>
+  </main>
+
+  <main id="appView" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="side-brand">
+        <div class="side-logo side-logo-image"><img src="/app/assets/nova-global-logo-selected.png?v=7" alt="Nova Global" /></div>
+        <div>
+          <strong>Nova Panel</strong>
+          <span id="memberNo">Bayi</span>
+        </div>
+      </div>
+
+     
+      <nav class="side-nav">
+  <button class="nav-btn active" type="button" data-view="dashboard" data-icon="A">Panel</button>
+  <button class="nav-btn" type="button" data-view="products" data-icon="U">Ürünler</button>
+  <button class="nav-btn" type="button" data-view="cart" data-icon="S">Sepet</button>
+  <button class="nav-btn" type="button" data-view="orders" data-icon="O">Siparişler</button>
+  <button class="nav-btn" type="button" data-view="wallet" data-icon="₺">Cüzdan</button>
+  <button class="nav-btn" type="button" data-view="earnings" data-icon="K">Kazançlar</button>
+    <button class="nav-btn" type="button" data-view="team" data-icon="T">Takım Ağacı</button>
+<button class="nav-btn" type="button" data-view="support" data-icon="Y">Talepler</button>
+</nav>
+
+
+      <button id="logoutBtn" class="ghost-btn" type="button">Çıkış</button>
+    </aside>
+
+    <section class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow dark">Bayi operasyon merkezi</p>
+          <h2 id="pageTitle">Panel</h2>
+        </div>
+
+        <div class="user-pill">
+          <span id="userName">Nova Üye</span>
+          <strong id="userPackage">standart</strong>
+        </div>
+      </header>
+
+      <div id="message" class="message hidden"></div>
+
+     <section id="dashboardView" class="view-section dashboard-page">
+  <div class="dashboard-title">
+    <h1>Hoşgeldiniz, Sn. <span id="welcomeName">Nova Üye</span> - ID : <span id="welcomeId">900000</span></h1>
+  </div>
+
+  <div class="dashboard-top-grid">
+    <article class="metric-card">
+      <span class="metric-icon purple">◇</span>
+      <p>Sol Kol Bayi</p>
+      <strong id="dashboardLeftCount">0</strong>
+    </article>
+
+    <article class="metric-card">
+      <span class="metric-icon teal">◇</span>
+      <p>Sağ Kol Bayi</p>
+      <strong id="dashboardRightCount">0</strong>
+    </article>
+
+    <article class="metric-card">
+      <span class="metric-icon yellow">▣</span>
+      <p>Bu Ay Sipariş</p>
+      <strong id="dashboardMonthlyOrders">0</strong>
+    </article>
+
+    <article class="metric-card">
+      <span class="metric-icon red">₺</span>
+      <p>Bekleyen Prim</p>
+      <strong id="dashboardPendingBonus">₺0,00</strong>
+    </article>
+
+    <article class="activity-day-card">
+      <p>KALAN AKTİFLİK GÜNÜ</p>
+      <strong id="activeDays">30</strong>
+      <span id="activeDayText">Aktiflik başlangıcı üyelik tarihinden başlar.</span>
+    </article>
+  </div>
+
+  <div class="dashboard-layout">
+    <div class="dashboard-left">
+      <section class="trio-card glass-card">
+        <div class="card-arrow">→</div>
+        <h2>✦ 2+2 Bonus</h2>
+
+        <div class="trio-small-grid">
+          <div>
+            <p id="dashboardLeftBonusText">Sol kol: 0 / 2 bayi</p>
+            <div class="mini-line"><span id="dashboardLeftBonusLine" style="width: 0%;"></span></div>
+          </div>
+
+          <div>
+            <p id="dashboardRightBonusText">Sağ kol: 0 / 2 bayi</p>
+            <div class="mini-line"><span id="dashboardRightBonusLine" style="width: 0%;"></span></div>
+          </div>
+        </div>
+
+        <div class="bonus-rule">
+          Her bayinin minimum 3.000 TL alışveriş yapması gerekir.
+        </div>
+
+        <div class="trio-prize-row reward-detail-row">
+          <article>
+            <strong>Hediye Ürün</strong>
+            <span>İstediği 1 ürünü hediye olarak alır.</span>
+          </article>
+          <article>
+            <strong>Prim Hakkı</strong>
+            <span>Prim oranına +%2 ek kazanç hakkı eklenir.</span>
+          </article>
+          <article>
+            <strong>Hediye Çeki</strong>
+            <span>İstediği mağazada kullanabileceği 500 TL çek kazanır.</span>
+          </article>
+        </div>
+      </section>
+
+      <div class="bottom-bonus-grid">
+        <section class="glass-card bonus-status-card">
+          <div class="card-arrow">→</div>
+          <h2>₺ Kazanç Durumu</h2>
+
+          <div class="earning-pair">
+            <div>
+              <strong id="dashboardMonthlyBonus">₺0,00</strong>
+              <span>Bu Ay Tahmini Prim</span>
+            </div>
+
+            <div>
+              <strong id="dashboardTotalBonus">₺0,00</strong>
+              <span>Toplam Kazanç</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="glass-card bonus-status-card">
+          <div class="card-arrow">→</div>
+          <h2>✦ 15 Bayi Hediye Çeki</h2>
+
+          <div class="gift-progress">
+            <strong id="dashboardGiftText">0 / 15</strong>
+            <div class="mini-line"><span id="dashboardGiftLine" style="width: 0%;"></span></div>
+            <span>Referansla sipariş veren bayi hedefi</span>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <aside class="career-side">
+      <div id="rankVisual" class="rank-visual rank-standart"></div>
+    </aside>
+  </div>
+</section>
+
+
+
+      <section id="productsView" class="view-section hidden">
+        <div class="product-summary-strip">
+          <article class="product-summary-card">
+            <span>Sepetteki Ürün</span>
+            <strong id="productTotalAmount">0 ürün</strong>
+          </article>
+
+          <article class="product-summary-card">
+            <span>Ödenecek Tutar</span>
+            <strong id="productDiscountedAmount">₺ 0,00</strong>
+            <small id="productDiscountRate">%0 indirim</small>
+          </article>
+
+          <article class="product-summary-card product-info-card">
+            <span>Paket İndirimi</span>
+            <strong id="productDiscountPercent">%0</strong>
+            <small id="productActivePackage">Standart</small>
+          </article>
+
+          <article class="product-summary-card product-cargo-card">
+            <span>Kargo Bilgisi</span>
+            <strong>Kargo limiti: ₺ 2.500,00</strong>
+            <small>Kargo ücreti: ₺ 150,00</small>
+          </article>
+        </div>
+
+        <div class="product-action-row">
+          <input id="productSearchInput" class="product-search" type="search" placeholder="Hızlı arama yapın" />
+          <button id="goCartBtn" class="cart-shortcut-btn" type="button">Sepetiniz <span id="productCartButtonTotal">₺ 0,00</span> ›</button>
+        </div>
+        <div class="shop-toolbar">
+          <div>
+            <h3>Ürünler</h3>
+            <p>Paket seviyene göre indirimli ürünleri sepete ekle.</p>
+          </div>
+          <button id="refreshProductsBtn" class="secondary-btn" type="button">Ürünleri Yenile</button>
+        </div>
+
+        <div class="category-row">
+          <button class="category-pill active" type="button" data-category="all">Tüm Ürünler</button>
+          <button class="category-pill" type="button" data-category="Kahve">Kahve</button>
+          <button class="category-pill" type="button" data-category="Kozmetik">Kozmetik</button>
+          <button class="category-pill" type="button" data-category="Kişisel Bakım">Kişisel Bakım</button>
+          <button class="category-pill" type="button" data-category="Besin Takviyesi">Besin Takviyesi</button>
+          <button class="category-pill" type="button" data-category="Termal Transfer Bant">Termal Transfer Bant</button>
+        </div>
+
+        <div id="productsGrid" class="products-grid"></div>
+      </section>
+      <section id="cartView" class="view-section hidden">
+        <div class="checkout-grid">
+          <div class="checkout-main">
+            <div class="panel-card">
+              <div class="section-head">
+                <h3>Sepetiniz</h3>
+                <button id="refreshCartBtn" class="secondary-btn" type="button">Sepeti Yenile</button>
+              </div>
+              <div id="cartItems" class="cart-list"></div>
+            </div>
+
+            <div class="panel-card address-panel-card">
+              <div class="section-head">
+                <h3>Adres ve Teslimat Bilgileri</h3>
+                <button id="refreshAddressesBtn" class="secondary-btn" type="button">Adresleri Yenile</button>
+              </div>
+
+              <form id="addressForm" class="address-form">
+                <input type="hidden" name="adres_id" />
+
+                <div class="two-col compact-fields">
+                  <label>Alıcı Adı<input name="teslim_alacak_ad" required /></label>
+                  <label>Alıcı Soyadı<input name="teslim_alacak_soyad" required /></label>
+                </div>
+
+                <div class="two-col compact-fields">
+                  <label>Telefon<input name="teslim_alacak_telefon" required /></label>
+                  <label>Adres Başlığı<input name="adres_basligi" placeholder="Ev, İş, Depo" /></label>
+                </div>
+
+                <div class="three-col compact-fields">
+                  <label>Ülke
+                    <select name="ulke_id" required>
+                      <option value="1">Türkiye</option>
+                      <option value="2">Azerbaycan</option>
+                      <option value="3">Amerika</option>
+                    </select>
+                  </label>
+                  <label>İl<input name="il" required /></label>
+                  <label>İlçe<input name="ilce" required /></label>
+                </div>
+
+                <label>Posta Kodu<input name="posta_kodu" /></label>
+                <label>Açık Adres<textarea name="acik_adres" required></textarea></label>
+
+                <button class="primary-btn" type="submit">Adresi Kaydet</button>
+              </form>
+
+              <div id="addressList" class="address-list"></div>
+            </div>
+          </div>
+
+          <aside class="checkout-side">
+            <div class="panel-card payment-card">
+              <h3>Ödeme Yöntemi</h3>
+              <div class="payment-options">
+                <label><input type="radio" name="paymentType" value="kart" /> Kredi Kartı</label>
+                <label><input type="radio" name="paymentType" value="havale" /> Havale/EFT</label>
+                <label><input type="radio" name="paymentType" value="kendi_cuzdani" /> Cüzdan</label>
+                <label><input type="radio" name="paymentType" value="sponsor_cuzdani" /> Sponsor Cüzdanı</label>
+              </div>
+              <div id="paymentDetailPanel" class="payment-detail-panel">
+                <div class="payment-empty-note">Ödeme yöntemini seç, gerekli bilgiler burada açılacak.</div>
+              </div>
+            </div>
+
+            <div class="panel-card order-total-card">
+              <h3>Sipariş Tutarı</h3>
+              <div id="cartSummary" class="price-summary"></div>
+              <button id="createOrderBtn" class="primary-btn" type="button">Sipariş Oluştur</button>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="ordersView" class="view-section hidden">
+        <div class="orders-page-card">
+          <div class="orders-head">
+            <h3>Siparişlerim</h3>
+            <button id="refreshOrdersBtn" class="secondary-btn" type="button">Siparişleri Yenile</button>
+          </div>
+
+          <div class="orders-filter-card">
+            <label>Sipariş ID<input id="orderFilterId" type="text" placeholder="# veya ID" /></label>
+            <label>Ödeme Tipi
+              <select id="orderFilterPayment">
+                <option value="">Tüm Ödeme Tipleri</option>
+                <option value="kart">Kredi Kartı</option>
+                <option value="havale">Havale/EFT</option>
+                <option value="kendi_cuzdani">Cüzdan</option>
+                <option value="sponsor_cuzdani">Sponsor Cüzdanı</option>
+              </select>
+            </label>
+            <label>Sipariş Durumu
+              <select id="orderFilterStatus">
+                <option value="">Tüm Durumlar</option>
+                <option value="1">Ödeme Bekliyor</option>
+                <option value="2">Havale/EFT Kontrol Bekliyor</option>
+                <option value="3">Ödeme Onaylandı</option>
+                <option value="4">Hazırlanıyor</option>
+                <option value="5">Kargoda</option>
+                <option value="6">Teslim Edildi</option>
+                <option value="7">İptal Edildi</option>
+                <option value="8">İade Edildi</option>
+              </select>
+            </label>
+            <label>Başlangıç Tarihi<input id="orderFilterStart" type="date" /></label>
+            <label>Bitiş Tarihi<input id="orderFilterEnd" type="date" /></label>
+            <label>Arama<input id="orderFilterSearch" type="text" placeholder="Sipariş no, durum..." /></label>
+            <div class="filter-actions">
+              <button id="applyOrderFiltersBtn" class="primary-btn" type="button">Filtrele</button>
+              <button id="clearOrderFiltersBtn" class="danger-soft-btn" type="button">Temizle</button>
+            </div>
+          </div>
+
+          <div class="orders-table-card">
+            <div class="orders-table-wrap">
+              <table class="orders-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Sipariş Tarihi</th>
+                    <th>Ödeme Tipi</th>
+                    <th>Sipariş Durumu</th>
+                    <th>Toplam Tutar</th>
+                    <th>İşlemler</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersList"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="orderDetailView" class="view-section hidden">
+        <div id="orderDetailPanel" class="order-detail-panel"></div>
+      </section>
+
+      <section id="walletView" class="view-section hidden">
+        <div id="walletArea" class="wallet-page"></div>
+      </section>
+
+      <section id="earningsView" class="view-section hidden">
+        <div class="panel-card">
+          <div class="section-head">
+            <h3>Kazançlar</h3>
+            <button id="refreshEarningsBtn" class="secondary-btn" type="button">Kazançları Yenile</button>
+          </div>
+          <div id="earningsArea"></div>
+        </div>
+      </section>
+
+
+      <section id="teamView" class="view-section hidden">
+        <div class="team-tree-page">
+          <div class="team-tree-header glass-panel">
+            <div>
+              <p class="eyebrow dark">Bayi Ağacım</p>
+              <h2 id="teamRootTitle">Takım Ağacı</h2>
+              <span id="teamRootMeta">Referans ağın ve sağ/sol kol durumu</span>
+            </div>
+            <div class="team-tree-controls">
+              <input id="teamSearchInput" placeholder="İsim, soyisim veya üye no ile ara" />
+              <button id="teamSearchBtn" class="secondary-btn" type="button">Arama</button>
+              <button id="teamResetBtn" class="secondary-btn" type="button">Ağacı Getir</button>
+            </div>
+          </div>
+
+          <div class="team-summary-row">
+            <article><span>Sol Kol</span><strong id="teamLeftCount">0</strong><small id="teamLeftVolume">₺ 0,00</small></article>
+            <article><span>Sağ Kol</span><strong id="teamRightCount">0</strong><small id="teamRightVolume">₺ 0,00</small></article>
+            <article><span>Toplam Bayi</span><strong id="teamTotalCount">0</strong><small>Aktif referans ağı</small></article>
+            <article><span>2+2 Bonus</span><strong id="teamBonusStatus">Bekliyor</strong><small>Her bayi 3.000 TL alışveriş şartı</small></article>
+          </div>
+
+          <div class="pending-team-panel glass-panel">
+            <div>
+              <p class="eyebrow dark">Yerleşim Bekleyen Bayiler</p>
+              <h3>Sponsor kodunla kayıt olup kola yerleşmeyen bayiler</h3>
+            </div>
+            <div id="pendingTeamList" class="pending-team-list">
+              <div class="pending-empty">Bekleyen bayi bulunmuyor.</div>
+            </div>
+          </div>
+          <div class="team-tree-shell glass-panel">
+            <div class="team-zoom-controls">
+              <button id="teamZoomOut" type="button">-</button>
+              <button id="teamZoomReset" type="button">↗</button>
+              <button id="teamZoomIn" type="button">+</button>
+            </div>
+            <div id="teamTreeCanvas" class="team-tree-canvas"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="supportView" class="view-section hidden">
+        <div class="support-page-grid">
+          <div class="panel-card support-form-card">
+            <div class="section-head">
+              <h3>Talep Gönder</h3>
+              <button id="refreshSupportBtn" class="secondary-btn" type="button">Talepleri Yenile</button>
+            </div>
+            <form id="supportForm" class="support-form">
+              <label>Konu<input name="konu" placeholder="Ödeme, sipariş, cüzdan..." required /></label>
+              <label>Mesaj<textarea name="mesaj" placeholder="Talebini detaylı yaz..." required></textarea></label>
+              <button class="primary-btn" type="submit">Talebi Gönder</button>
+            </form>
+          </div>
+          <div class="panel-card support-list-card">
+            <h3>Talep Geçmişi</h3>
+            <div id="supportList" class="support-list"></div>
+          </div>
+        </div>
+      </section>
+      <section id="adminView" class="view-section hidden">
+        <div class="panel-card">
+          <div class="section-head">
+            <h3>Admin Özeti</h3>
+            <button id="refreshAdminBtn" class="secondary-btn" type="button">Admin Verilerini Yenile</button>
+          </div>
+          <div id="adminArea"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

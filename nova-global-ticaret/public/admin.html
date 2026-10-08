@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova Admin Panel</title>
+  <link rel="stylesheet" href="/admin-assets/admin.css" />
+</head>
+<body>
+  <main id="adminLoginView" class="admin-login-shell">
+    <section class="admin-brand-panel">
+      <div class="admin-logo">NG</div>
+      <p>Nova Global Ticaret</p>
+      <h1>Admin Yönetim Merkezi</h1>
+      <span>Ödeme onayları, siparişler, hesap hareketleri ve bayi talepleri tek merkezde.</span>
+    </section>
+
+    <section class="admin-login-card">
+      <p class="eyebrow">Yetkili giriş</p>
+      <h2>Admin Girişi</h2>
+      <form id="adminLoginForm">
+        <label>E-mail<input name="email" value="admin@nova.com" required /></label>
+        <label>Şifre<input name="sifre" type="password" value="admin123" required /></label>
+        <button type="submit">Panele Gir</button>
+      </form>
+      <div id="adminLoginMessage" class="admin-message hidden"></div>
+    </section>
+  </main>
+
+  <main id="adminPanelView" class="admin-panel-shell hidden">
+    <aside class="admin-sidebar">
+      <div class="admin-logo small">NG</div>
+      <nav>
+        <button class="active" data-admin-view="dashboard">Özet</button>
+        <button data-admin-view="members">&Uuml;yeler</button>
+        <button data-admin-view="team">Takım Ağacı</button>
+        <button data-admin-view="orders">Siparişler</button>
+        <button data-admin-view="payments">Ödeme Onayları</button>
+        <button data-admin-view="wallets">Hesap Hareketleri</button>
+        <button data-admin-view="requests">Talepler</button>
+      </nav>
+      <button id="adminLogoutBtn" class="admin-logout">Çıkış</button>
+    </aside>
+
+    <section class="admin-content">
+      <header class="admin-topbar">
+        <div>
+          <p class="eyebrow">Nova Global</p>
+          <h1 id="adminPageTitle">Özet</h1>
+        </div>
+        <div id="adminIdentity" class="admin-identity"></div>
+      </header>
+      <div id="adminMessage" class="admin-message hidden"></div>
+      <section id="adminContentArea"></section>
+    </section>
+  </main>
+
+  <script src="/admin-assets/admin.js"></script>
+</body>
+</html>
+
+
+

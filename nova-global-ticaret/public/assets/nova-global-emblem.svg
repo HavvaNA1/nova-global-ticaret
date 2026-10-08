@@ -1,0 +1,58 @@
+﻿<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="48%" r="60%">
+      <stop offset="0%" stop-color="#10243F"/>
+      <stop offset="58%" stop-color="#06101D"/>
+      <stop offset="100%" stop-color="#01040A"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="106" y1="70" x2="416" y2="442" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF2B8"/>
+      <stop offset="0.22" stop-color="#D8A84B"/>
+      <stop offset="0.5" stop-color="#F8E7A0"/>
+      <stop offset="0.74" stop-color="#A87324"/>
+      <stop offset="1" stop-color="#FFF4C9"/>
+    </linearGradient>
+    <linearGradient id="platinum" x1="152" y1="102" x2="360" y2="410" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.34" stop-color="#9DB4C9"/>
+      <stop offset="0.68" stop-color="#F4F8FF"/>
+      <stop offset="1" stop-color="#687D91"/>
+    </linearGradient>
+    <radialGradient id="teal" cx="50%" cy="50%" r="50%">
+      <stop stop-color="#9FFFF7"/>
+      <stop offset="0.45" stop-color="#16D6C4"/>
+      <stop offset="1" stop-color="#015B62"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.12 0 0 0 0 0.92 0 0 0 0 0.85 0 0 0 0.72 0"/>
+      <feBlend in="SourceGraphic" mode="screen"/>
+    </filter>
+    <filter id="shadow" x="-35%" y="-35%" width="170%" height="170%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000000" flood-opacity="0.55"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="16" flood-color="#D8A84B" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <circle cx="256" cy="256" r="246" fill="url(#bg)"/>
+  <circle cx="256" cy="256" r="222" stroke="url(#gold)" stroke-width="4" opacity="0.85"/>
+  <circle cx="256" cy="256" r="177" stroke="#E8F7FF" stroke-width="1.5" opacity="0.22"/>
+  <ellipse cx="256" cy="256" rx="205" ry="82" transform="rotate(-22 256 256)" stroke="url(#gold)" stroke-width="5" opacity="0.78"/>
+  <ellipse cx="256" cy="256" rx="174" ry="64" transform="rotate(27 256 256)" stroke="#8FFAF2" stroke-width="2" opacity="0.28"/>
+
+  <g filter="url(#shadow)">
+    <path d="M256 46 L294 218 L256 256 L218 218 Z" fill="url(#platinum)" stroke="url(#gold)" stroke-width="3"/>
+    <path d="M466 256 L294 294 L256 256 L294 218 Z" fill="url(#gold)" stroke="#FFF1B8" stroke-width="3"/>
+    <path d="M256 466 L218 294 L256 256 L294 294 Z" fill="url(#platinum)" stroke="url(#gold)" stroke-width="3"/>
+    <path d="M46 256 L218 218 L256 256 L218 294 Z" fill="url(#gold)" stroke="#FFF1B8" stroke-width="3"/>
+
+    <path d="M154 106 L240 236 L256 256 L126 170 Z" fill="#F9FBFF" opacity="0.72"/>
+    <path d="M406 154 L276 240 L256 256 L342 126 Z" fill="#F6D47A" opacity="0.88"/>
+    <path d="M358 406 L272 276 L256 256 L386 342 Z" fill="#F9FBFF" opacity="0.68"/>
+    <path d="M106 358 L236 272 L256 256 L170 386 Z" fill="#F6D47A" opacity="0.82"/>
+  </g>
+
+  <circle cx="256" cy="256" r="42" fill="url(#teal)" stroke="#F9E8A6" stroke-width="5" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="15" fill="#FFFFFF" opacity="0.92"/>
+  <circle cx="256" cy="256" r="236" stroke="#FFFFFF" stroke-width="1" opacity="0.08"/>
+</svg>
