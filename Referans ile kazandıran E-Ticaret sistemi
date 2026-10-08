@@ -1,0 +1,20 @@
+# Nova Global Ticaret
+
+E-ticaret süreçleri, kullanıcı yönetimi ve bayi/sipariş takibi için geliştirilmiş Node.js tabanlı arka uç (backend) ve yönetim paneli uygulaması.
+
+## 🚀 Kullanılan Teknolojiler
+- **Backend:** Node.js, Express.js
+- **Veritabanı:** MySQL
+- **Frontend / Arayüz:** HTML5, CSS3, Vanilla JavaScript
+
+## 📌 Özellikler
+- Kullanıcı ve bayi kayıt/yetkilendirme sistemi
+- Sipariş ve ödeme akışları yönetimi
+- Kargo ve sevkiyat takip modülü
+- Yönetici (Admin) kontrol paneli
+- Bakiye ve cüzdan hareketleri yönetimi
+
+## 🛠️ Kurulum
+1. Projeyi klonlayın:
+   ```bash
+   git clone [https://github.com/HavvaNA1/nova-global-ticaret.git](https://github.com/HavvaNA1/nova-global-ticaret.git)
